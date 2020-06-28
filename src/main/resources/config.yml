@@ -1,3 +1,4 @@
+#The list of limits town join in the random list.
 list:
   whitelist-mode: false
   towns:
@@ -13,4 +14,5 @@ limit:
   type-of-blocks-included:
     - shop
     - embassy
+#Let newbies automatic join to the town that random one.
 auto-join-the-town: false
