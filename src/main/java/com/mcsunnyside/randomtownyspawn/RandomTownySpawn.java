@@ -14,6 +14,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -21,7 +22,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public final class RandomTownySpawn extends JavaPlugin {
+public final class RandomTownySpawn extends JavaPlugin implements Listener {
     //private TownBlockType townBlockType;
     private Towny towny;
     private List<String> towns;
@@ -32,13 +33,14 @@ public final class RandomTownySpawn extends JavaPlugin {
     private int maxResidentsAmount = -1;
     private final Set<TownBlockType> townBlockTypes = new HashSet<>();
     private boolean autoJoinTown = false;
-    private ThreadLocalRandom random = ThreadLocalRandom.current();
+    private final ThreadLocalRandom random = ThreadLocalRandom.current();
 
     @Override
     public void onEnable() {
         // Plugin startup logic
         this.instance = this;
         saveDefaultConfig();
+        Bukkit.getPluginManager().registerEvents(this,this);
         towny = (Towny) Bukkit.getPluginManager().getPlugin("Towny");
         townBlockTypes.clear();
         //townBlockType = TownBlockType.lookup(getConfig().getString("town-type", "embassy"));
