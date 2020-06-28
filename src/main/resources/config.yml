@@ -1,0 +1,16 @@
+list:
+  whitelist-mode: false
+  towns:
+    - THE_TOWN_HAS_BEEN_DISABLED_OR_ENABLED
+limit:
+  #The town must have town blocks to allow spawn newbies.
+  min-block-amount: 8
+  #The town must have residents more than this value to allow spawn newbies.
+  min-residents-amount: 3
+  #The town must have residents less than this value to allow spawn newbies.
+  max-residents-amount: -1
+  #The town must contains the all type of town block in under list.
+  type-of-blocks-included:
+    - shop
+    - embassy
+auto-join-the-town: false

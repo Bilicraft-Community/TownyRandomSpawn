@@ -1,0 +1,4 @@
+name: RandomTownySpawn
+version: ${project.version}
+main: com.mcsunnyside.randomtownyspawn.RandomTownySpawn
+api-version: 1.15.2
