@@ -97,8 +97,14 @@ public final class RandomTownySpawn extends JavaPlugin implements Listener {
                     getLogger().info("No any towns matches the limits, player " + event.getPlayer().getName() + " will use default spawn point.");
                     return;
                 }
+                int randomInt;
+                if(okTown.size() == 1){
+                    randomInt = 0;
+                }else{
+                    randomInt = random.nextInt(okTown.size()-1);
+                }
 
-                Town town = okTown.get(random.nextInt(okTown.size()-1));
+                Town town = okTown.get(randomInt);
                 try {
                     Location location = town.getSpawn();
                     Bukkit.getScheduler().runTask(instance, () -> {
